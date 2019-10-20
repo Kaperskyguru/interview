@@ -8,7 +8,6 @@ abstract class db
     private $stmt;
 
 
-    //Using a singleton pattern to avoid duplication database connection
     public function db()
     {
         if (!self::$dbh) {
@@ -76,12 +75,5 @@ abstract class db
             $_SESSION['error'] = $e->getMessage();
         }
     }
-
-    public function lastIdinsert():int
-    {
-        $id = intval($this->db->lastInsertId());
-        return $id;
-    }
-
 
 }
